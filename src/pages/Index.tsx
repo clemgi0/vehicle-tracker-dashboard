@@ -25,9 +25,9 @@ interface MQTTConfigData {
   topic: string;
   username?: string;
   password?: string;
-  caCert?: string;
-  clientCert?: string;
-  clientKey?: string;
+  caCert: string;
+  clientCert: string;
+  clientKey: string;
 }
 
 // Configurable timeout in milliseconds (default: 5 minutes)

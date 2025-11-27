@@ -7,9 +7,9 @@ interface MQTTConfig {
   topic: string;
   username?: string;
   password?: string;
-  caCert?: string;
-  clientCert?: string;
-  clientKey?: string;
+  caCert: string;
+  clientCert: string;
+  clientKey: string;
 }
 
 interface VehicleData {
@@ -33,18 +33,10 @@ export const useMQTT = (config: MQTTConfig | null, onDataReceived: (data: Vehicl
       username: config.username,
       password: config.password,
       rejectUnauthorized: true,
+      ca: config.caCert,
+      cert: config.clientCert,
+      key: config.clientKey,
     };
-
-    // Add TLS certificates if provided
-    if (config.caCert) {
-      options.ca = config.caCert;
-    }
-    if (config.clientCert) {
-      options.cert = config.clientCert;
-    }
-    if (config.clientKey) {
-      options.key = config.clientKey;
-    }
 
     try {
       const client = mqtt.connect(config.brokerUrl, options);

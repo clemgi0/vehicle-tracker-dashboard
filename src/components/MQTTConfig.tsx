@@ -10,9 +10,9 @@ interface MQTTConfigData {
   topic: string;
   username?: string;
   password?: string;
-  caCert?: string;
-  clientCert?: string;
-  clientKey?: string;
+  caCert: string;
+  clientCert: string;
+  clientKey: string;
 }
 
 interface MQTTConfigProps {
@@ -22,7 +22,7 @@ interface MQTTConfigProps {
 const MQTTConfig = ({ onConnect }: MQTTConfigProps) => {
   const [config, setConfig] = useState<MQTTConfigData>({
     brokerUrl: 'mqtts://broker.example.com:8883',
-    topic: 'vehicle/data',
+    topic: 'test/mutuo',
     username: '',
     password: '',
     caCert: '',
@@ -59,7 +59,7 @@ const MQTTConfig = ({ onConnect }: MQTTConfigProps) => {
             type="text"
             value={config.topic}
             onChange={(e) => setConfig({ ...config, topic: e.target.value })}
-            placeholder="vehicle/data"
+            placeholder="test/mutuo"
             required
             className="bg-secondary border-border"
           />
@@ -90,7 +90,7 @@ const MQTTConfig = ({ onConnect }: MQTTConfigProps) => {
         </div>
 
         <div>
-          <Label htmlFor="caCert">CA Certificate (optional)</Label>
+          <Label htmlFor="caCert">CA Certificate</Label>
           <Textarea
             id="caCert"
             value={config.caCert}
@@ -98,11 +98,12 @@ const MQTTConfig = ({ onConnect }: MQTTConfigProps) => {
             placeholder="-----BEGIN CERTIFICATE-----"
             className="bg-secondary border-border font-mono text-xs"
             rows={4}
+            required
           />
         </div>
 
         <div>
-          <Label htmlFor="clientCert">Client Certificate (optional)</Label>
+          <Label htmlFor="clientCert">Client Certificate</Label>
           <Textarea
             id="clientCert"
             value={config.clientCert}
@@ -110,11 +111,12 @@ const MQTTConfig = ({ onConnect }: MQTTConfigProps) => {
             placeholder="-----BEGIN CERTIFICATE-----"
             className="bg-secondary border-border font-mono text-xs"
             rows={4}
+            required
           />
         </div>
 
         <div>
-          <Label htmlFor="clientKey">Client Key (optional)</Label>
+          <Label htmlFor="clientKey">Client Key</Label>
           <Textarea
             id="clientKey"
             value={config.clientKey}
@@ -122,6 +124,7 @@ const MQTTConfig = ({ onConnect }: MQTTConfigProps) => {
             placeholder="-----BEGIN PRIVATE KEY-----"
             className="bg-secondary border-border font-mono text-xs"
             rows={4}
+            required
           />
         </div>
 
