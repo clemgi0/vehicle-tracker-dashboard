@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 interface VehicleData {
   essence: number;
@@ -141,6 +142,13 @@ const Index = () => {
                 {isConnected ? 'MQTT Connected' : 'MQTT Disconnected'}
               </span>
             </div>
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={() => setMqttConfig(null)}
+            >
+              Change Configuration
+            </Button>
           </div>
         </div>
 
