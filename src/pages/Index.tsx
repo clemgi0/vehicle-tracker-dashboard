@@ -2,13 +2,11 @@ import { useEffect, useState, useRef } from 'react';
 import VehicleMap from '@/components/VehicleMap';
 import SpeedGauge from '@/components/SpeedGauge';
 import FuelGauge from '@/components/FuelGauge';
-import EmergencyStop from '@/components/EmergencyStop';
 import VehicleInfo from '@/components/VehicleInfo';
 import { useToast } from '@/hooks/use-toast';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { useMqttPolling } from '@/hooks/get-data';
 
 interface VehicleData {
@@ -160,7 +158,7 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
           <VehicleInfo
             moduleId={vehicleData.id}
             latitude={vehicleData.latitude}
