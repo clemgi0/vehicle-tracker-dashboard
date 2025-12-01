@@ -50,7 +50,7 @@ const SpeedGauge = ({ speed }: SpeedGaugeProps) => {
             <div className="text-4xl font-bold text-foreground tabular-nums">
               {Math.round(speed)}
             </div>
-            <div className="text-xs text-muted-foreground uppercase tracking-wider">km/h</div>
+            <div className="text-xs text-muted-foreground uppercase tracking-wider">m/h</div>
           </div>
         </div>
       </div>

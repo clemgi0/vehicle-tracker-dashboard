@@ -69,7 +69,7 @@ const Index = () => {
 
   const { lastMessage: data, loading } = useMqttPolling(
     "http://localhost:3001/messages",
-    5000
+    1000
   );
 
   useEffect(() => {
