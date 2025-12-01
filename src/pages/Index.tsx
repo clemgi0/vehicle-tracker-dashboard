@@ -166,10 +166,6 @@ const Index = () => {
             latitude={vehicleData.latitude}
             longitude={vehicleData.longitude}
           />
-          <EmergencyStop
-            isMoving={vehicleData.speed > 0}
-            onStop={handleEmergencyStop}
-          />
         </div>
       </div>
     </div>
