@@ -27,7 +27,7 @@ const Index = () => {
     gas: 0,
     latitude: 6.271074573357741,
     longitude: -75.55443227388572,
-    speed: 0,
+    speed: 0.0,
     id: 12345,
     ts: new Date(Date.now())
   });
@@ -82,7 +82,7 @@ const Index = () => {
       gas: Number(data.payload.gas ?? 0),
       latitude: Number(data.payload.latitude ?? 0),
       longitude: Number(data.payload.longitude ?? 0),
-      speed: Number(data.payload.speed ?? 0),
+      speed: Number(data.payload.speed ?? 0) / 2.0,
       id: Number(data.payload.id ?? 0),
       ts: new Date(data.timestamp ?? 0)
     };
@@ -99,18 +99,6 @@ const Index = () => {
       if (itineraryTimeoutRef.current) clearTimeout(itineraryTimeoutRef.current);
     };
   }, []);
-
-  const handleEmergencyStop = () => {
-    fetch("http://localhost:4000/emergency-stop", { method: "POST" });
-
-    setVehicleData(prev => ({ ...prev, speed: 0 }));
-
-    toast({
-      title: "Emergency Stop Activated",
-      description: "Vehicle has been stopped remotely.",
-      variant: "destructive"
-    });
-  };
 
   return (
     <div className="min-h-screen bg-background p-4 md:p-6 lg:p-8">
